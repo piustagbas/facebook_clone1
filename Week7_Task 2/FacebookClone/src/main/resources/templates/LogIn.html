@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook clone</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Cabin", Courier, monospace;
+            height: 100vh;
+            margin: 0;
+            padding: 22px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #1264bd;
+        }
+        .facebook-logo p{
+            color: #f3f3f3;
+        }
+        h2 {
+            text-align: left;
+            margin-bottom: 0px;
+        }
+        form p{
+            color: dodgerblue;
+            text-align: center;
+        }
+        .main p{
+            color: dodgerblue;
+            text-align: center;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .sign-in_wrapper h3 {
+            margin: 0;
+        }
+        .sign-in_wrapper span {
+            margin: 3px 4px;
+        }
+        select {
+            margin-right: 6px;
+        }
+        button {
+            text-align: center;
+            width: 95%;
+            padding: 10px;
+            background-color: dodgerblue;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button.create-btn{
+            align-items: center;
+            color: white;
+            background-color: dodgerblue;
+        }
+        button:hover {
+            background-color: dodgerblue;
+            transform: scale(1.05);
+        }
+        label input[type="radio"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="main">
+        <div class="left">
+            <img src="fb_logo.svg" alt="facebook" class="logo" />
+            <p>Connect with friends and the world around you on Facebook.</p>
+        </div>
+        <div class="right">
+            <form method="post" th:action="@{/login}" th:object="${login}">
+                <div class="form_body">
+                    <input type="text" name="email" id="email" placeholder="Email or Phone Number" />
+                    <input type="password" name="password" id="password" placeholder="password" />
+                    <button type="submit">Log in</button>
+                    <p>Forget password?</p>
+                    <hr />
+                    <button class="create-btn">
+                        <a th:href="@{/sign-up}">Create new Account</a>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <p th:text="${userMessage}"></p>
+        <p><span>Create a Page</span> for a celebrity, brand, or business.</p>
+    </div>
+</header>
+</body>
+</html>
